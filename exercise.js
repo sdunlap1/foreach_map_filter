@@ -71,22 +71,48 @@ function extractKey(arr, key) {
 }
 
 function extractFullName(arr, key) {
-  return arr.map(function(val){
-    return val['first'] + ' ' + val['last'];
+  return arr.map(function (val) {
+    return val["first"] + " " + val["last"];
   });
 }
 
 //Filter
 function filterByValue(arr, key) {
-  return arr.filter(function(val) {
+  return arr.filter(function (val) {
     return key in val;
   });
 }
 
 function find(arr, value) {
-  return arr.filter(function(val){
+  return arr.filter(function (val) {
     return val === value;
   })[0];
-  }
+}
 
-  
+function findInObj(arr, key, firstVal) {
+  const search = arr.filter(function (val) {
+    return val[key] === firstVal;
+  });
+  return search[0];
+}
+
+function removeVowels(str) {
+  const vowels = "aeiouAEIOU";
+  return str
+    .toLowerCase()
+    .split("")
+    .filter(function (char) {
+      return !vowels.includes(char);
+    })
+    .join("");
+}
+
+function doubleOddNumbers(arr) {
+  return arr
+    .filter(function (num) {
+      return num % 2 !== 0;
+    })
+    .map(function (odd) {
+      return odd * 2;
+    });
+}
